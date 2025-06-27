@@ -54,9 +54,12 @@ DATA_PARAMS = {
 # ================================
 
 PATHS = {
-    'data': 'data/Scaled_data.csv',
-    'models': 'results/models/',
-    'plots': 'results/plots/'
+    'data': 'Data/Scaled_data.csv',  
+    'results': {
+        'plots': 'results/plots/',
+        'models': 'results/models/',
+        'reports': 'results/reports/'
+    }
 }
 
 # ================================

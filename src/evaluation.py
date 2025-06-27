@@ -245,40 +245,53 @@ class ModelEvaluator:
         return winner
     
     def save_results(self, rnn_metrics, theta_metrics, winner):
-        """Save evaluation results to files"""
+        """Save comparison results to files"""
+        print("Saving results...")
         
-        print("\nSaving evaluation results...")
-        
-        # Create comparison DataFrame
-        comparison_df = pd.DataFrame({
-            'Model': ['RNN', 'Theta'],
-            'MSE': [rnn_metrics['MSE'], theta_metrics['MSE']],
-            'RMSE': [rnn_metrics['RMSE'], theta_metrics['RMSE']],
-            'MAE': [rnn_metrics['MAE'], theta_metrics['MAE']],
-            'MAPE': [rnn_metrics['MAPE'], theta_metrics['MAPE']],
-            'R2': [rnn_metrics['R2'], theta_metrics['R2']]
-        })
-        
-        # Save to CSV
         try:
-            comparison_df.to_csv(f"{PATHS['results']['reports']}model_comparison.csv", index=False)
+            # Create summary dictionary first
+            summary = {
+                'RNN_MSE': rnn_metrics['MSE'],
+                'RNN_RMSE': rnn_metrics['RMSE'], 
+                'RNN_MAE': rnn_metrics['MAE'],
+                'RNN_MAPE': rnn_metrics['MAPE'],
+                'RNN_R2': rnn_metrics['R2'],
+                'Theta_MSE': theta_metrics['MSE'],
+                'Theta_RMSE': theta_metrics['RMSE'],
+                'Theta_MAE': theta_metrics['MAE'], 
+                'Theta_MAPE': theta_metrics['MAPE'],
+                'Theta_R2': theta_metrics['R2'],
+                'Winner': winner
+            }
+            
+            # Save summary to CSV
             pd.DataFrame([summary]).to_csv(f"{PATHS['results']['reports']}evaluation_summary.csv", index=False)
-        except:
-            comparison_df.to_csv("model_comparison.csv", index=False)
-            pd.DataFrame([summary]).to_csv("evaluation_summary.csv", index=False)
+            
+            # Save detailed metrics
+            metrics_df = pd.DataFrame([
+                {'Model': 'RNN', **rnn_metrics},
+                {'Model': 'Theta', **theta_metrics}
+            ])
+            metrics_df.to_csv(f"{PATHS['results']['reports']}detailed_metrics.csv", index=False)
+            
+            print("Results saved to CSV files")
+            
+        except Exception as e:
+            print(f"Error saving results: {e}")
+            # Create a basic summary if there's an error
+            basic_summary = {
+                'RNN_MSE': rnn_metrics.get('MSE', 'N/A'),
+                'Theta_MSE': theta_metrics.get('MSE', 'N/A'),
+                'Winner': winner
+            }
+            try:
+                pd.DataFrame([basic_summary]).to_csv("evaluation_summary.csv", index=False)
+                print("Basic summary saved to evaluation_summary.csv")
+            except:
+                print("Could not save results to file")
         
-        print("Results saved to CSV files") #Save summary report
-        summary = {
-            'winner': winner,
-            'rnn_mse': rnn_metrics['MSE'],
-            'theta_mse': theta_metrics['MSE'],
-            'improvement_percent': abs(rnn_metrics['MSE'] - theta_metrics['MSE']) / max(rnn_metrics['MSE'], theta_metrics['MSE']) * 100
-        }
+        return summary
         
-        pd.DataFrame([summary]).to_csv(f"{PATHS['results']['reports']}evaluation_summary.csv", index=False)
-        
-        print("✅ Results saved to CSV files")
-    
     def compare_models(self, rnn_trainer, theta_trainer, rnn_results, theta_results, test_loader):
         """
         Main function to compare RNN and Theta models
