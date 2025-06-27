@@ -18,10 +18,7 @@ A comprehensive comparative study evaluating **statistical methods vs deep learn
 
 ## Live Demo
 
-**Interactive Dashboard** - Deploy to Streamlit Cloud to get your shareable link
-
-*Add your Streamlit Cloud URL here after deployment*
-
+https://mta5dmlrknz349bxcvif2q.streamlit.app/
 ---
 
 ## Architecture & Methodology
