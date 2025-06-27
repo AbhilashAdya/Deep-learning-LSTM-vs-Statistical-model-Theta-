@@ -41,7 +41,7 @@ Original_data.csv → Data Cleaning → Cleaned_data.csv → Scaling/Normalizati
 2. **Deep Learning Approach**: Multi-layer RNN with LSTM cells
 
 ### Input Features
-- `new_cases`: Daily new COVID-19 cases, Population, Tets done, Positivity Rate
+- `new_cases`: Daily new COVID-19 cases
 - `tests_done`: Daily testing volume
 - `positivity_rate`: Test positivity percentage
 - `population`: Country population (normalization factor)
