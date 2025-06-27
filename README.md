@@ -18,8 +18,22 @@ A comprehensive comparative study evaluating **statistical methods vs deep learn
 
 ## Live Demo
 
-https://mta5dmlrknz349bxcvif2q.streamlit.app/
+**[Interactive Dashboard]: https://mta5dmlrknz349bxcvif2q.streamlit.app/
 ---
+
+## Dashboard Preview
+
+#### Project Overview
+![Dashboard Overview](Screenshots/project_overview.png)
+
+#### Results Preview
+![ Results Preview](Screenshots/results_preview.png)
+
+#### Model Performance Comparison
+![Performance Comparison](Screenshots/model_comparison.png)
+
+#### Training Progress
+![Training Progress](Screenshots/training_curves.png)
 
 ## Architecture & Methodology
 
