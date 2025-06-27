@@ -18,7 +18,7 @@ A comprehensive comparative study evaluating **statistical methods vs deep learn
 
 ## Live Demo
 
-**</u>Interactive Dashboard</u>**: https://mta5dmlrknz349bxcvif2q.streamlit.app/
+**[</u>Interactive Dashboard</u>]**: https://mta5dmlrknz349bxcvif2q.streamlit.app/
 ---
 
 ## Dashboard Preview
