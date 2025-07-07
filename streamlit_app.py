@@ -33,15 +33,11 @@ def get_model_results():
         'rnn_metrics': {
             'MSE': 0.9785,
             'RMSE': 0.9892,
-            'MAE': 0.5996,
-            'MAPE': 367.6847,
             'R2': 0.1030
         },
         'theta_metrics': {
             'MSE': 2.4325,
             'RMSE': 1.5597,
-            'MAE': 0.8110,
-            'MAPE': 481.5134,
             'R2': -1.2299
         }
     }
@@ -77,7 +73,7 @@ def create_metrics_chart():
     """Create model comparison chart"""
     results = get_model_results()
     
-    metrics = ['MSE', 'RMSE', 'MAE', 'R2']
+    metrics = ['MSE', 'RMSE', 'R2']
     rnn_values = [results['rnn_metrics'][m] for m in metrics]
     theta_values = [results['theta_metrics'][m] for m in metrics]
     
@@ -153,7 +149,7 @@ def show_overview():
         - **RNN Model:** Deep learning approach using LSTM neural networks
         - **Theta Model:** Traditional statistical time series method
         - **Multi-country analysis** across 5 European countries (2020-2022)
-        - **14-day prediction horizon** with multiple input features
+        - **14-time stamps(14 weeks) prediction horizon** with multiple input features
         
         ### Why This Comparison Matters:
         - Shows the effectiveness of modern ML vs traditional statistics
