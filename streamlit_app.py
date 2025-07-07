@@ -114,9 +114,6 @@ def main():
     st.title("COVID-19 Forecasting Dashboard")
     st.subheader("Statistical Models vs Deep Learning Comparison")
     
-    # Important note about data
-    st.info("**Data Note:** All predictions are evaluated on standardized data (mean=0, std=1) to ensure fair comparison across countries with different population scales.")
-    
     # Sidebar navigation
     st.sidebar.title("Navigation")
     page = st.sidebar.selectbox(
