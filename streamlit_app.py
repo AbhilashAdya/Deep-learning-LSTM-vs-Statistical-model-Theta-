@@ -162,7 +162,7 @@ def show_overview():
         st.markdown("###  Quick Stats")
         st.metric("Countries Analyzed", "5")
         st.metric("Time Period", "2020-2022")
-        st.metric("Prediction Window", "14 days")
+        st.metric("Prediction Window", "14 Weeks")
         st.metric("Input Features", "4")
         
         # Winner announcement
