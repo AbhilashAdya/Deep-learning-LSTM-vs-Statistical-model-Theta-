@@ -353,18 +353,14 @@ def show_model_comparison():
         'RNN Model': [
             f"{results['rnn_metrics']['MSE']:.4f}",
             f"{results['rnn_metrics']['RMSE']:.4f}",
-            f"{results['rnn_metrics']['MAE']:.4f}",
-            f"{results['rnn_metrics']['MAPE']:.1f}",
             f"{results['rnn_metrics']['R2']:.4f}"
         ],
         'Theta Model': [
             f"{results['theta_metrics']['MSE']:.4f}",
             f"{results['theta_metrics']['RMSE']:.4f}",
-            f"{results['theta_metrics']['MAE']:.4f}",
-            f"{results['theta_metrics']['MAPE']:.1f}",
             f"{results['theta_metrics']['R2']:.4f}"
         ],
-        'Winner': [' RNN', ' RNN', ' RNN', ' RNN', ' RNN']
+        'Winner': [' RNN', ' RNN', ' RNN']
     }
     
     metrics_df = pd.DataFrame(metrics_data)
