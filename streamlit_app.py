@@ -425,14 +425,7 @@ def show_model_comparison():
         - Negative values = worse than baseline
         - Scale: -∞ to 1
         """)
-    
-    # Why no MAPE explanation
-    st.warning("""
-    **Why MAPE is excluded:** MAPE (Mean Absolute Percentage Error) is unreliable with standardized data because:
-    - Division by small standardized values creates artificially inflated percentages
-    - Negative standardized values make MAPE calculations meaningless
-    - For business applications, MAPE would be calculated on original (non-standardized) data
-    """)
+
 
 def show_insights():
     """Key insights and conclusions page"""
